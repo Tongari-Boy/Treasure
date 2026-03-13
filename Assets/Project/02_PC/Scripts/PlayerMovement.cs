@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         Move();
+        //RotateViewRow();
     }
 
     private void Move()
@@ -32,5 +33,21 @@ public class PlayerMovement : MonoBehaviour
         move.y = -2f;
 
         _controller.Move(move * currentSpeed * Time.deltaTime);
+    }
+
+    private void RotateViewRow()
+    {
+        float rotateX = 0;
+
+        //
+        float RotationSpeed = 100f;
+
+        if (_input.IsLookingRow)
+        {
+            rotateX += RotationSpeed * Time.deltaTime;
+        }
+
+        transform.Rotate(Vector3.up * rotateX);
+
     }
 }

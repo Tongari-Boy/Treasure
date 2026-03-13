@@ -5,6 +5,7 @@ public class PlayerInputHandler : MonoBehaviour
     private PlayerControls _controls;
     public Vector2 MoveInput { get; private set; }
     public bool IsSprinting { get; private set; }
+    public bool IsLookingRow { get; private set; }
 
 
 
@@ -31,5 +32,7 @@ public class PlayerInputHandler : MonoBehaviour
         //LeftShift‚ª‰Ÿ‚³‚ê‚Ä‚¢‚éŠÔAtrue‚É‚È‚é
         //ReadValueAsButton()‚Í‚µ‚«‚¢’l(0.5)‚ğ’´‚¦‚Ä‚¢‚ê‚ÎAtrue‚ğ•Ô‚µ‚Ü‚·
         IsSprinting = _controls.Player.Sprint.ReadValue<float>() > 0.5f;
+
+        IsLookingRow = _controls.Player.LookRow.ReadValue<bool>();
     }
 }
