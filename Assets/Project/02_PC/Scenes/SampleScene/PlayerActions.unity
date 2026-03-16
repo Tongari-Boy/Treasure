@@ -128,7 +128,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 50480312}
-  m_Layer: 0
+  - component: {fileID: 50480313}
+  m_Layer: 3
   m_Name: Sample
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,6 +155,33 @@ Transform:
   - {fileID: 1425479670}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &50480313
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 50480311}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &548469894
 GameObject:
   m_ObjectHideFlags: 0
@@ -166,7 +194,7 @@ GameObject:
   - component: {fileID: 548469898}
   - component: {fileID: 548469897}
   - component: {fileID: 548469896}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -405,7 +433,7 @@ GameObject:
   - component: {fileID: 822485489}
   - component: {fileID: 822485488}
   - component: {fileID: 822485487}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -519,7 +547,7 @@ GameObject:
   - component: {fileID: 927970051}
   - component: {fileID: 927970050}
   - component: {fileID: 927970049}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -636,6 +664,8 @@ GameObject:
   - component: {fileID: 986016354}
   - component: {fileID: 986016353}
   - component: {fileID: 986016352}
+  - component: {fileID: 986016356}
+  - component: {fileID: 986016355}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -662,7 +692,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.8
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -790,6 +820,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a925b49d0bf3614cb36cec5214cca8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInputHandler
+--- !u!54 &986016355
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 986016347}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
+--- !u!114 &986016356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 986016347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6936344183c1d94b9f664245c1d5188, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CollidionEffectConstroller
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  invertMaterial: {fileID: 2100000, guid: 8580529157419c742bf093b4255a94d1, type: 2}
+  effectDuration: 0.5
 --- !u!1 &1425479669
 GameObject:
   m_ObjectHideFlags: 0
@@ -802,7 +876,7 @@ GameObject:
   - component: {fileID: 1425479673}
   - component: {fileID: 1425479672}
   - component: {fileID: 1425479671}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cylinder (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
