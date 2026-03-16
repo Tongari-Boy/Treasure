@@ -5,7 +5,11 @@ public class PlayerInputHandler : MonoBehaviour
     private PlayerControls _controls;
     public Vector2 MoveInput { get; private set; }
     public bool IsSprinting { get; private set; }
-    public bool IsLookingRow { get; private set; }
+    
+    //Spaceが押されているか
+    public bool IsRotatingMode { get; private set; }
+    //回転方向
+    public float RotationDirection { get; private set; }
 
 
 
@@ -26,13 +30,28 @@ public class PlayerInputHandler : MonoBehaviour
 
     public void Update()
     {
-        //Vector2(x,y)として入力を取得
-        MoveInput = _controls.Player.Move.ReadValue<Vector2>();
+        
+        IsRotatingMode = _controls.Player.RotationModifier.ReadValue<float>() > 0.5f;
+
+        if (IsRotatingMode)
+        {
+            MoveInput = Vector2.zero;
+
+            float right = _controls.Player.LookRight.ReadValue<float>();
+            float left = _controls.Player.LookLeft.ReadValue<float>();
+            RotationDirection = right - left;
+        }
+        else
+        {
+            //Vector2(x,y)として入力を取得
+            MoveInput = _controls.Player.Move.ReadValue<Vector2>();
+            //回転方向は0
+            RotationDirection = 0;
+        }
+
 
         //LeftShiftが押されている間、trueになる
-        //ReadValueAsButton()はしきい値(0.5)を超えていれば、trueを返します
+        //ReadValueAsButton()はしきい値(0.5)を超えていれば、trueを返す
         IsSprinting = _controls.Player.Sprint.ReadValue<float>() > 0.5f;
-
-        IsLookingRow = _controls.Player.LookRow.ReadValue<bool>();
     }
 }

@@ -25,13 +25,31 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "LookRow",
-                    "type": "Value",
-                    "id": "94c9b897-79a0-4c04-b2be-394ba420ae63",
+                    "name": "LookRight",
+                    "type": "Button",
+                    "id": "26a57f39-7e7b-4730-9a03-f945b28ba8b3",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "LookLeft",
+                    "type": "Button",
+                    "id": "0d8ae59d-ac45-4df4-bd25-9239faf72218",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "RotationModifier",
+                    "type": "Button",
+                    "id": "e8661616-1550-4826-878d-acb57ea4ab02",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -102,70 +120,81 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "LookRight",
-                    "id": "ced2d30d-bd34-4bb1-b8f6-36377f35c7fb",
+                    "name": "One Modifier",
+                    "id": "daa5dad8-d673-4443-ae48-a26dd0d3b9f4",
                     "path": "OneModifier",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "LookRow",
+                    "action": "LookRight",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "modifier",
-                    "id": "d52ed0eb-c63f-42e7-9c38-528f66b0d254",
+                    "id": "92219b2f-8c4d-4110-a7ce-b16e7686f041",
                     "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "LookRow",
+                    "action": "LookRight",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "binding",
-                    "id": "8c7ca7db-db61-4f0c-a1f4-13d7d38814be",
+                    "id": "446bddb9-038e-4834-9393-c869d69566d2",
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "LookRow",
+                    "action": "LookRight",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "LookLeft",
-                    "id": "494f4d88-4ccb-40c9-8ab7-67bce72a9d1b",
+                    "name": "One Modifier",
+                    "id": "976922a4-a893-48f4-ab8f-18c8c54d1cd8",
                     "path": "OneModifier",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "LookRow",
+                    "action": "LookLeft",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "modifier",
-                    "id": "952d5477-8fdb-45da-a728-f63f0003b676",
+                    "id": "adb7c853-f134-455b-b341-4e8777a4121d",
                     "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "LookRow",
+                    "action": "LookLeft",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "binding",
-                    "id": "9f055d86-4de4-4752-a07b-917426115a88",
+                    "id": "33d680db-f6e8-427e-9118-475d5f626c79",
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "LookRow",
+                    "action": "LookLeft",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "24f115ab-d6bc-4051-b8a7-94834ba81778",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotationModifier",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
