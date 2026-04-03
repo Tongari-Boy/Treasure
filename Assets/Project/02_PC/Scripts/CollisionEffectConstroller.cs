@@ -14,8 +14,9 @@ public class CollisionEffectConstroller : MonoBehaviour
         {
             _timer -= Time.deltaTime;
 
-            //タイマーが動いている間は強度を1にする
-            invertMaterial.SetFloat("_InvertIntensity", 1f);
+            // タイマーの残りに合わせて強度を下げる（0に近づく）
+            float intensity = _timer / effectDuration;
+            invertMaterial.SetFloat("_InvertIntensity", intensity);
         }
         else
         {
@@ -26,6 +27,18 @@ public class CollisionEffectConstroller : MonoBehaviour
     //衝突時に呼ばれる
     private void OnCollisionEnter(Collision collision)
     {
+        if (((1 << collision.gameObject.layer) & targetLayer) != 0)
+        {
+            //衝突地点をワールド座標からスクリーン座標に変換
+            Vector3 contactPoint = collision.contacts[0].point;
+            Vector3 screenPoint = Camera.main.WorldToViewportPoint(contactPoint);
+
+            //シェーダーに中心点を送る
+            invertMaterial.SetVector("_BumpCenter", new Vector4(screenPoint.x, screenPoint.y, 0, 0));
+
+            _timer = effectDuration;
+        }
+
         //指定したレイヤー(Obstacle)のオブジェクトにぶつかった時だけタイマーを動かす
         if (((1 << collision.gameObject.layer) & targetLayer) != 0)
         {
